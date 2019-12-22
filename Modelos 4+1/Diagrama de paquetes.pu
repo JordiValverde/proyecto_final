@@ -1,0 +1,32 @@
+@startuml
+
+    package view{
+        [index]
+        [buy_flight]
+        [reserve_flight]
+    }
+    
+    package controller{
+        [PlaneController]
+        [PassengerController]
+        [PilotController]
+        [SeatController]
+        [FlightController]
+    }
+    
+    package model{
+        [ModelEloquent]
+    }
+    
+    package database{
+        database MySQL
+    }
+    
+    index "1" -- "1" buy_flight
+    index "1" -- "1" reserve_flight
+    
+    view -- controller
+    controller <--> ModelEloquent
+    ModelEloquent "*" <--> "1" MySQL
+
+@enduml

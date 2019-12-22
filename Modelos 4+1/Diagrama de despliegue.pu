@@ -1,0 +1,33 @@
+@startuml
+
+actor user
+interface http
+
+node computer{
+ [web_browser]
+}
+
+node heroku{
+ component RoR_APIs{
+  [Routes]
+  [Controllers]
+  [DAO]
+  [Models]
+ }
+ component MySQL{
+  database reserve
+  database buy
+ }
+}
+
+user -- computer
+web_browser -- http
+http -- heroku
+
+Routes -- Controllers
+Controllers -- DAO
+DAO -- Models
+
+Models -- MySQL
+
+@enduml
