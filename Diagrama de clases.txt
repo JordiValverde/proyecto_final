@@ -1,0 +1,85 @@
+@startuml
+
+    interface person{
+        string name
+        string last_name
+        
+        void add()
+        void edit()
+        
+    }
+    class passenger{
+        string dni
+        string sex
+        integer age
+        
+        void register_fly()
+        passenger search_passenger()
+    }
+    
+    class pilot{
+        string pilot_code
+        integer number_licence
+        
+        void assign_flight()
+        void cancel_flight()
+        pilot search_pilot()
+    }
+    
+    class plane{
+        string airline
+        string plane_code
+        integer seats_number
+        string compartment
+        
+        void assign_flight()
+        void cancel_flight()
+        plane get_plane()
+    }
+    
+    class flight{
+        integer number_flight
+        string departure_time
+        string arrival_time
+        string place_departure
+        string place_arrival
+        date departure_date
+        date arrival_date
+        string flight_type
+        
+        void reserve_flight()
+        void edit_flight()
+        void delete_flight()
+        flight search_flight()
+    }
+    
+    class seat{
+        integer number_seat
+        boolean state
+        string compartment
+        
+        void reserve_seat()
+        void buy_seat()
+        boolean show_disponibility()
+        void unlock_seat()
+    }
+    
+    class city{
+        integer city_id
+        string city_name
+        
+        void add_city()
+        city get_city()
+    }
+
+
+    person <|-- pilot
+    person <|-- passenger
+    flight "*" *-- "1" plane
+    flight "*" *-- "1" passenger
+    flight "*" *-- "1" pilot
+    flight "*" *-- "1" city
+    flight "*" *-- "*" seat
+    passenger o-- seat
+    
+@enduml
