@@ -17,6 +17,8 @@ class CreateSeatsTable extends Migration
             $table->bigIncrements('id');
             $table->boolean('state');
             $table->String('compartment');
+            $table->unsignedBigInteger('passenger_id');
+            $table->foreign('passenger_id')->references('id')->on('passengers')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

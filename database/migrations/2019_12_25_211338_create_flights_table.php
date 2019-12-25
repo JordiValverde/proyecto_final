@@ -22,6 +22,17 @@ class CreateFlightsTable extends Migration
             $table->Date('departure_date');
             $table->Date('arrival_date');
             $table->String('flight_type');
+            $table->String('state');
+            $table->unsignedBigInteger('pilot_id');
+            $table->foreign('pilot_id')->references('id')->on('pilots')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('passenger_id');
+            $table->foreign('passenger_id')->references('id')->on('passengers')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('seat_id');
+            $table->foreign('seat_id')->references('id')->on('seats')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('city_id');
+            $table->foreign('city_id')->references('id')->on('citys')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('plane_id');
+            $table->foreign('plane_id')->references('id')->on('planes')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -47,6 +47,7 @@
         date departure_date
         date arrival_date
         string flight_type
+        string state
         
         void reserve_flight()
         void edit_flight()
