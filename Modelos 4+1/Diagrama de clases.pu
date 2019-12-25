@@ -79,7 +79,7 @@
     flight "*" *-- "1" passenger
     flight "*" *-- "1" pilot
     flight "*" *-- "1" city
-    flight "*" *-- "*" seat
+    flight "1" *-- "*" seat
     passenger o-- seat
     
 @enduml
