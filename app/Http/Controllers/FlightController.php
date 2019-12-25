@@ -8,6 +8,7 @@ use App\Flight;
 class FlightController extends Controller
 {
     public function index(){
+
         return view('Reserve_flight.reserve');
     }
 
@@ -49,16 +50,17 @@ class FlightController extends Controller
         $flightUpdate->arrival_date = $request->Fllegada;
         $flightUpdate->flight_type = $request->tipo_vuelo;
         $flightUpdate->save();
+        return view('index');
     }
 
     public function destroy($id){
         $flightDelete = Flight::findOrFail($id);
         $flightDelete->delete();
-        return back()->with('mensaje', 'Vuelo Cancelado');
+        return view('index')->with('mensaje', 'Vuelo Cancelado');
     }
 
-    public function show($id){
-        $flight = Flight::findOrFail($id);
-        return view('Reserve_flight.show', compact('flight'));
+    public function show(Request $request){
+        $flightShow = Flight::findOrFail($request->id);
+        return view('Reserve_flight.show',compact('flightShow'));
     }
 }

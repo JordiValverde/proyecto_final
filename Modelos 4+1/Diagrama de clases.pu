@@ -10,6 +10,7 @@
     }
     class passenger{
         string dni
+        string name
         string sex
         integer age
         

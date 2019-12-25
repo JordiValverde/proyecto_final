@@ -14,7 +14,7 @@ class CreatePlanesTable extends Migration
     public function up()
     {
         Schema::create('planes', function (Blueprint $table) {
-            $table->bigIncrements('plane_code');
+            $table->bigIncrements('id');
             $table->String('airline');
             $table->integer('seats_number');
             $table->String('compartments');
