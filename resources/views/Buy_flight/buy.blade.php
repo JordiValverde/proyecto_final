@@ -2,19 +2,15 @@
 
 @section('title')
 
-    Nigga's Airline - Editar
+    Nigga's Airline - Reserva
 
 @endsection
 
 @section('content')
 
-    <span>Editar Reserva de Vuelo</span>
-    <a href="{{ 'index' }}" class="btn btn-primary btn-sm">Volver a Inicio</a>
-
-    <form action="{{ route('reserve.update',$flight->id) }}" method="POST">
-        @method('PUT')
+    <form method="POST" action="/reserve">
         @csrf
-
+        
         <input type="time" name="Hsalida" placeholder="Hora de Salida"/>
         <input type="time" name="Hllegada" placeholder="Hora de llegada"/>
         <input type="date" name="Fsalida" placeholder="Fecha de Salida"/>
@@ -48,7 +44,7 @@
             <option value="Primera Clase">Primera Clase</option>
             <option value="Turista">Turista</option>
         </select>
-        
+        <input type="text" name="dni" placeholder="DNI"/>
         <select name="sexo">
             <option value="Masculino">reservado</option>
             <option value="Femenino">reservado</option>
@@ -56,7 +52,7 @@
         <input type="text" name="edad" placeholder="Edad"/>
         <input type="text" name="nombre" placeholder="Nombre"/>
         <input type="text" name="apellido" placeholder="Apellido"/>
-        <button type="submit">Editar</button>
-    </form>
 
+        <button type="submit">Aceptar</button>
+    </form>
 @endsection

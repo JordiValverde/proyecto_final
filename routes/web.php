@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::resource('/reserve', 'FlightController');
+Route::resource('/buy', 'FlightController');
+Route::get('/buyI', 'FlightController@index2');

@@ -17,7 +17,7 @@ class CreatePlanesTable extends Migration
             $table->bigIncrements('id');
             $table->String('airline');
             $table->integer('seats_number');
-            $table->String('compartments');
+            $table->String('compartment');
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <button name='Comprar_Boleto' onclick="window.location.href = '/buy';">
+    <button name='Comprar_Boleto' onclick="window.location.href = '/buyI';">
         <b>Comprar Boleto</b>
         <img src="http://www.desarrolloweb.com/images/logo_desarrollo_web.gif" width="261" height="35" alt="">
     </button>
@@ -18,7 +18,7 @@
         <img src="http://www.desarrolloweb.com/images/logo_desarrollo_web.gif" width="261" height="35" alt="">
     </button>
 
-    <form method="GET" action="/reserve/show">
+    <form method="GET" action="/show">
         @method('GET')
         @csrf
         <input type="text" name="id" placeholder="Buscar por ID de Vuelo"/>

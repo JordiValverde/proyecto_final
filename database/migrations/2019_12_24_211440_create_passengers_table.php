@@ -15,12 +15,12 @@ class CreatePassengersTable extends Migration
     {
         Schema::create('passengers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('dni');
-            $table->string('name');
             $table->string('sex');
             $table->integer('age');
-            $table->unsignedBigInteger('person_id');
-            $table->foreign('person_id')->references('id')->on('persons')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('name');
+            $table->string('last_name');
+            $table->BigInteger('seat_id')->unsigned();
+            $table->foreign('seat_id')->references('id')->on('seats')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

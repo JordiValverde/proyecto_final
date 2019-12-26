@@ -1,18 +1,14 @@
 @startuml
 
-    interface person{
+    class passenger{
+        string dni
+        string sex
+        integer age
         string name
         string last_name
         
         void add()
         void edit()
-        
-    }
-    class passenger{
-        string dni
-        string name
-        string sex
-        integer age
         
         void register_fly()
         passenger search_passenger()
@@ -21,6 +17,11 @@
     class pilot{
         string pilot_code
         integer number_licence
+        string name
+        string last_name
+        
+        void add()
+        void edit()
         
         void assign_flight()
         void cancel_flight()
@@ -28,8 +29,8 @@
     }
     
     class plane{
-        string airline
         string plane_code
+        string airline
         integer seats_number
         string compartment
         
@@ -82,6 +83,7 @@
     flight "*" *-- "1" pilot
     flight "*" *-- "1" city
     flight "1" *-- "*" seat
+    plane   "1" *-- "1" pilot
     passenger o-- seat
     
 @enduml

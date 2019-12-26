@@ -15,23 +15,23 @@ class CreateFlightsTable extends Migration
     {
         Schema::create('flights', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String('departure_time');
-            $table->String('arrival_time');
-            $table->String('place_departure');
-            $table->String('place_arrival');
+            $table->time('departure_time');
+            $table->time('arrival_time');
+            $table->BigInteger('place_departure')->unsigned();
+            $table->foreign('place_departure')->references('id')->on('citys')->onDelete('cascade')->onUpdate('cascade');
+            $table->BigInteger('place_arrival')->unsigned();
+            $table->foreign('place_arrival')->references('id')->on('citys')->onDelete('cascade')->onUpdate('cascade');
             $table->Date('departure_date');
             $table->Date('arrival_date');
             $table->String('flight_type');
             $table->String('state');
-            $table->unsignedBigInteger('pilot_id');
+            $table->BigInteger('pilot_id')->unsigned();
             $table->foreign('pilot_id')->references('id')->on('pilots')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('passenger_id');
+            $table->BigInteger('passenger_id')->unsigned();
             $table->foreign('passenger_id')->references('id')->on('passengers')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('seat_id');
+            $table->BigInteger('seat_id')->unsigned();
             $table->foreign('seat_id')->references('id')->on('seats')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('city_id');
-            $table->foreign('city_id')->references('id')->on('citys')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('plane_id');
+            $table->BigInteger('plane_id')->unsigned();
             $table->foreign('plane_id')->references('id')->on('planes')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
