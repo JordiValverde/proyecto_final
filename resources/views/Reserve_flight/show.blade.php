@@ -7,6 +7,7 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">DNI</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Edad</th>
                 <th scope="col">Sexo</th>
@@ -26,13 +27,13 @@
         <tbody>
             <tr>
                 <th scope="row">{{ $flightShow->id }}</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{$flightShow->id}}</td>
+                <td>{{}}</td>
+                <td>{{}}</td>
+                <td>{{}}</td>
+                <td>{{}}</td>
+                <td>{{}}</td>
+                <td>{{}}</td>
                 <td>{{ $flightShow->departure_date}}</td>
                 <td>{{ $flightShow->departure_time}}</td>
                 <td>{{ $flightShow->arrival_date}}</td>
