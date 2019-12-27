@@ -18,7 +18,7 @@
         <img src="http://www.desarrolloweb.com/images/logo_desarrollo_web.gif" width="261" height="35" alt="">
     </button>
 
-    <form method="GET" action="/show">
+    <form method="GET" action="/reserve/show">
         @method('GET')
         @csrf
         <input type="text" name="id" placeholder="Buscar por ID de Vuelo"/>

@@ -8,17 +8,19 @@ use App\Flight;
 use App\Plane;
 use App\Seat;
 use App\Pilot;
+use App\Passenger;
+use App\City;
 
 
 class FlightController extends Controller
 {
     public function index(){
-        
+
         return view('Reserve_flight.reserve');
     }
 
     public function index2(){
-        
+
         return view('Buy_flight.buy');
     }
 
@@ -61,21 +63,20 @@ class FlightController extends Controller
         ->update(['sex' => $request->sexo,'age' => $request->edad, 'name' => $request->nombre,
             'last_name' => $request->apellido,'seat_id' => $request->asiento ]);
 
-        $flight->departure_time = $request->Hsalida;
-        $flight->arrival_time = $request->Hllegada;
-        $flight->place_departure = $request->ciudadSalida;
-        $flight->place_arrival = $request->ciudadDestino;
-        $flight->departure_date = $request->Fsalida;
-        $flight->arrival_date = $request->Fllegada;
-        $flight->flight_type = $request->tipo_vuelo;
-        $flight->pilot_id = $request->piloto;
-        $flight->passenger_id = $request->dni;
-        $flight->seat_id = $request->asiento;
-        $flight->city_id = $request->ciudad;
-        $flight->state = $request->estado;
-        $flight->plane_id = $request->avion;
-        $flight->save();
-        return view('index');
+        $flightUpdate->departure_time = $request->Hsalida;
+        $flightUpdate->arrival_time = $request->Hllegada;
+        $flightUpdate->place_departure = $request->ciudadSalida;
+        $flightUpdate->place_arrival = $request->ciudadDestino;
+        $flightUpdate->departure_date = $request->Fsalida;
+        $flightUpdate->arrival_date = $request->Fllegada;
+        $flightUpdate->flight_type = $request->tipo_vuelo;
+        $flightUpdate->pilot_id = $request->piloto;
+        $flightUpdate->seat_id = $request->asiento;
+        $flightUpdate->state = $request->estado;
+        $flightUpdate->plane_id = $request->avion;
+        $flightUpdate->save();
+        $flight = $flightUpdate;
+        return back()->with('mensaje','Actualizado');
     }
 
     public function destroy($id){
@@ -85,17 +86,15 @@ class FlightController extends Controller
     }
 
     public function show(Request $request){
-        $passengerShow = Flight::findOrFail($request->id);
+        $dni = $request->id;
         $flightShow = DB::table('flights')
-        ->join('passengers', 'passengers.id', '=', 'flights.passenger_id')
-        ->join('seats', 'seats.id', '=', 'flights.seat_id')
-        ->join('pilots', 'pilots.id', '=', 'flights.pilot_id')
-        ->join('planes', 'planes.id', '=', 'flights.plane_id')
-        ->select('flights.*','passengers.*','seats.*','pilots.*','planes.*')
-        ->where('id',$request->id);
-        $seatShow = Seat::findOrFail($request->id);
-        $pilotShow = Pilot::findOrFail($request->id);
-        $planeShow = Plane::findOrFail($request->id);
+            ->join('passengers','passengers.id','=','flights.passenger_id')
+            ->join('pilots','pilots.id','=','flights.pilot_id')
+            ->join('citys','citys.id','=','flights.place_arrival')
+            ->select('citys.city_name as destino','pilots.name as pilot_name','flights.*','passengers.id as passenger_id','passengers.name','passengers.last_name','passengers.age','passengers.sex')
+            ->where('passengers.id','=',$dni)
+            ->get();
+
         return view('Reserve_flight.show',compact('flightShow'));
     }
 }

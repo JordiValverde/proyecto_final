@@ -8,9 +8,13 @@
 
 @section('content')
 
+    <span>Reserva o compra de Pasajes</span>
+    <a href="/" class="btn btn-primary btn-sm">Volver a Inicio</a>
+
+
     <form method="POST" action="/reserve">
         @csrf
-        
+
         <input type="time" name="Hsalida" placeholder="Hora de Salida"/>
         <input type="time" name="Hllegada" placeholder="Hora de llegada"/>
         <input type="date" name="Fsalida" placeholder="Fecha de Salida"/>
@@ -23,7 +27,7 @@
         <select name="estado">
             <option value="Reservado">Reservar</option>
             <option value="Comprado">Comprar</option>
-        </select>        
+        </select>
         <select name="ciudadDestino">
             <option value="1">huanuco</option>
             <option value="2">tingo maria</option>
@@ -37,8 +41,8 @@
             <option value="2">af45</option>
         </select>
         <select name="asiento">
-            <option value="1">1</option>    
-            <option value="2">2</option>    
+            <option value="1">1</option>
+            <option value="2">2</option>
         </select>
         <select name="tipo_vuelo">
             <option value="Primera Clase">Primera Clase</option>
