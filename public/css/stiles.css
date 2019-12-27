@@ -1,0 +1,33 @@
+button {
+    background-color: rgba(8, 5, 194, 0.534);
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+}
+
+.body {
+    background-color: rgba(109, 164, 226, 0.342)
+}
+
+.write {
+    color: #fff;
+}
+
+input {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    width: 50%;
+    display: block;
+}
+
+select {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    width: 50%;
+    display: block;
+}

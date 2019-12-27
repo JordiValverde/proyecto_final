@@ -6,8 +6,12 @@
 
 @endsection
 
-@section('content')
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/stiles.css">
 
+@section('content')
+<div class="body">
     <span>Editar Reserva de Vuelo</span>
     <a href="/" class="btn btn-primary btn-sm">Volver a Inicio</a>
 
@@ -56,7 +60,7 @@
         <input type="text" name="edad" placeholder="Edad"/>
         <input type="text" name="nombre" placeholder="Nombre"/>
         <input type="text" name="apellido" placeholder="Apellido"/>
-        <button type="submit">Editar</button>
+        <button class="write" type="submit"><b>Editar</b></button>
     </form>
-
+</div>
 @endsection
