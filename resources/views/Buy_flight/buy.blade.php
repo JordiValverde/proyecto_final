@@ -6,8 +6,11 @@
 
 @endsection
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/stiles.css">
 @section('content')
-
+<div class="body">
     <form method="POST" action="/reserve">
         @csrf
         
@@ -53,6 +56,7 @@
         <input type="text" name="nombre" placeholder="Nombre"/>
         <input type="text" name="apellido" placeholder="Apellido"/>
 
-        <button type="submit">Aceptar</button>
+        <button class="write" type="submit"><b>Aceptar</b></button>
     </form>
+</div>
 @endsection

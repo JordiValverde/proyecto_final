@@ -3,6 +3,10 @@
     Nigga's Airline - Detalles
 @section('content')
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/stiles.css">
+
     <table class="table" border="3" style="background-color: lightblue">
         <thead>
             <tr>
@@ -46,7 +50,7 @@
                     <form action="{{ route('reserve.destroy',$flightShow->id) }}" method="POST" class="d-inline">
                         @method('DELETE')
                         @csrf
-                        <button type="submit"> Eliminar </button>
+                        <button class="write" type="submit"> <b>Eliminar</b> </button>
                     </form>
                 <td>
         </tbody>
