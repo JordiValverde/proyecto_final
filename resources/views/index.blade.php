@@ -13,19 +13,19 @@
     <button class="write" name='Comprar_Boleto' onclick="window.location.href = '/buyI';">
         <link rel="stylesheet" href="css/stiles.css">
         <b>Comprar Boleto</b>
-        <img src="http://www.desarrolloweb.com/images/logo_desarrollo_web.gif" width="261" height="35" alt="">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FKaLx5E7345U%2Fhqdefault.jpg&f=1&nofb=1" width="261" height="35" alt="">
     </button>
 
     <button class="write" name='Reservar_Boleto' onclick="window.location.href = '/reserve';">
         <link rel="stylesheet" href="css/stiles.css">
         <b>Reservar Boleto</b>
-        <img src="http://www.desarrolloweb.com/images/logo_desarrollo_web.gif" width="261" height="35" alt="">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FKaLx5E7345U%2Fhqdefault.jpg&f=1&nofb=1" width="261" height="35" alt="">
     </button>
 
     <form method="GET" action="/reserve/show">
         @method('GET')
         @csrf
-        <input class="write" type="text" name="id" placeholder="Buscar por ID de Vuelo"/>
+        <input class="write" type="text" name="id" placeholder="Buscar por DNI"/>
         <button class="write" type="submit">
             <b>Aceptar</b>
         </button>

@@ -27,7 +27,6 @@
             <option value="2">Marco</option>
         </select>
         <select name="estado">
-            <option value="Reservado">Reservar</option>
             <option value="Comprado">Comprar</option>
         </select>
         <select name="ciudadDestino">

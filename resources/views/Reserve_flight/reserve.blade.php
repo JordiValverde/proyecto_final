@@ -30,7 +30,6 @@
         </select>
         <select name="estado">
             <option value="Reservado">Reservar</option>
-            <option value="Comprado">Comprar</option>
         </select>
         <select name="ciudadDestino">
             <option value="1">huanuco</option>

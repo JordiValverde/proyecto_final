@@ -81,6 +81,8 @@ class FlightController extends Controller
 
     public function destroy($id){
         $flightDelete = Flight::findOrFail($id);
+        $passengerDelete = DB::table('passengers')->where('id',$flightDelete->passenger_id)
+        ->delete();
         $flightDelete->delete();
         return view('index')->with('mensaje', 'Vuelo Cancelado');
     }
